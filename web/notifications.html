@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light only">
+  <meta name="theme-color" content="#FDF8EE">
+  <title>Agria - Notifications</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="notifications">
+
+  <header class="page-header" id="pageHeader">
+    <button class="header-btn" id="notifBackBtn" aria-label="Retour">
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+    <span class="header-logo">Notifications</span>
+    <button class="header-btn" id="notifMarkAllBtn" aria-label="Tout marquer comme lu">
+      <i class="fa-solid fa-check-double"></i>
+    </button>
+  </header>
+
+  <main class="page-wrap">
+    <div class="section">
+      <div class="card" id="notifDetailCard" style="display:none;margin-bottom:16px"></div>
+      <div class="card">
+        <div id="notifList"></div>
+      </div>
+    </div>
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-house"></i><span>Accueil</span></a>
+    <a href="carte.html" class="nav-item"><i class="fa-solid fa-map"></i><span>Carte</span></a>
+    <a href="diagnostic.html" class="nav-item"><i class="fa-solid fa-magnifying-glass"></i><span>Diagnostic</span></a>
+    <a href="profil.html" class="nav-item"><i class="fa-solid fa-user"></i><span>Profil</span></a>
+  </nav>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

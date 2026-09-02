@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light only">
+  <meta name="theme-color" content="#FDF8EE">
+  <title>Agria - Diagnostic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="diagnostic">
+
+  <header class="page-header" id="pageHeader">
+    <span class="header-logo">Diagnostic</span>
+  </header>
+
+  <main class="page-wrap">
+
+    <div class="diag-steps" id="diagnosticSteps">
+      <div class="step active" data-step="1"><span class="step-number">1</span></div>
+      <div class="step-line"></div>
+      <div class="step" data-step="2"><span class="step-number">2</span></div>
+      <div class="step-line"></div>
+      <div class="step" data-step="3"><span class="step-number">3</span></div>
+    </div>
+
+    <div id="diagnosticForm">
+      <div class="diag-etape active reveal" id="etape1">
+        <h2 class="section-title">Quelle est votre culture ?</h2>
+        <div class="culture-grid">
+          <label class="culture-card card"><input type="radio" name="culture" value="ble" hidden><i class="fa-solid fa-seedling"></i><span>Ble</span></label>
+          <label class="culture-card card"><input type="radio" name="culture" value="mais" hidden><i class="fa-solid fa-seedling"></i><span>Mais</span></label>
+          <label class="culture-card card"><input type="radio" name="culture" value="tournesol" hidden><i class="fa-solid fa-sun"></i><span>Tournesol</span></label>
+          <label class="culture-card card"><input type="radio" name="culture" value="colza" hidden><i class="fa-solid fa-leaf"></i><span>Colza</span></label>
+          <label class="culture-card card"><input type="radio" name="culture" value="vigne" hidden><i class="fa-solid fa-wine-glass"></i><span>Vigne</span></label>
+        </div>
+        <button type="button" class="btn btn-primary diagnostic-next" data-next="2">Suivant</button>
+      </div>
+
+      <div class="diag-etape" id="etape2">
+        <h2 class="section-title">Quels symptomes observez-vous ?</h2>
+        <div class="symptoms-list">
+          <label class="symptom-item"><input type="checkbox" name="symptome" value="jaunissement" hidden><span>Jaunissement des feuilles</span></label>
+          <label class="symptom-item"><input type="checkbox" name="symptome" value="taches" hidden><span>Taches brunes ou noires</span></label>
+          <label class="symptom-item"><input type="checkbox" name="symptome" value="fletrissement" hidden><span>Fletrissement</span></label>
+          <label class="symptom-item"><input type="checkbox" name="symptome" value="insectes" hidden><span>Presence d'insectes</span></label>
+          <label class="symptom-item"><input type="checkbox" name="symptome" value="croissance" hidden><span>Croissance ralentie</span></label>
+          <label class="symptom-item"><input type="checkbox" name="symptome" value="pourriture" hidden><span>Pourriture visible</span></label>
+        </div>
+        <button type="button" class="btn btn-primary diagnostic-next" data-next="3">Suivant</button>
+        <button type="button" class="btn btn-secondary diagnostic-prev" data-prev="1" style="margin-top:12px">Retour</button>
+      </div>
+
+      <div class="diag-etape" id="etape3">
+        <h2 class="section-title">Ou se trouve votre parcelle ?</h2>
+        <div class="form-group">
+          <input type="text" class="input" id="diagnosticVille" placeholder="Nom de la ville" autocomplete="off">
+        </div>
+        <p class="diag-info">Pour enrichir le diagnostic avec la meteo locale.</p>
+        <button type="button" class="btn btn-primary" id="btnAnalyser"><i class="fa-solid fa-magnifying-glass"></i> Analyser</button>
+        <button type="button" class="btn btn-secondary diagnostic-prev" data-prev="2" style="margin-top:12px">Retour</button>
+      </div>
+    </div>
+
+    <div id="diagnosticResultat" class="d-none">
+      <div class="card diag-result-card">
+        <div class="diag-badge-row"><span class="badge" id="diagBadge"></span></div>
+        <h2 class="diag-result-title" id="diagTitre"></h2>
+        <p class="diag-result-text" id="diagExplication"></p>
+      </div>
+      <div class="card diag-meteo-card">
+        <h3 class="section-title" style="font-size:15px">Donnees meteo locales</h3>
+        <div class="diag-meteo-grid" id="diagMeteoGrid"></div>
+      </div>
+      <div class="card diag-reco-card">
+        <h3 class="section-title" style="font-size:15px">Recommandations</h3>
+        <ul class="diag-reco-list" id="diagRecommandations"></ul>
+      </div>
+      <button type="button" class="btn btn-primary" id="btnDetailedDiag" style="margin-bottom:12px;background:#005b4f;color:#fff;width:100%;"><i class="fa-solid fa-envelope"></i> Analyse detaillee par mail (IA)</button>
+      <button type="button" class="btn btn-secondary" id="btnNouveauDiagnostic">Nouveau diagnostic</button>
+    </div>
+
+    <div class="section" id="diagnosticHistory" style="margin-top:28px">
+      <h2 class="section-title">Historique des diagnostics</h2>
+      <div id="diagHistoryList"></div>
+    </div>
+
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-house"></i><span>Accueil</span></a>
+    <a href="carte.html" class="nav-item"><i class="fa-solid fa-map"></i><span>Carte</span></a>
+    <a href="diagnostic.html" class="nav-item active"><i class="fa-solid fa-magnifying-glass"></i><span>Diagnostic</span></a>
+    <a href="profil.html" class="nav-item"><i class="fa-solid fa-user"></i><span>Profil</span></a>
+  </nav>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

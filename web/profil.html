@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light only">
+  <meta name="theme-color" content="#FDF8EE">
+  <title>Agria - Profil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="profil">
+
+  <header class="page-header" id="pageHeader">
+    <span class="header-logo">Mon profil</span>
+  </header>
+
+  <main class="page-wrap">
+
+    <div class="profile-section">
+      <div class="card" style="position:relative;padding-top:28px;">
+        <div class="profile-avatar" id="profilAvatar" style="position:absolute;top:-28px;right:16px;width:84px;height:84px;border:4px solid #FFFDF6;box-shadow:0 8px 20px rgba(61,46,31,0.12);font-size:28px;">AA</div>
+        <div style="">
+          <h2 class="section-title">Identite</h2>
+          <div class="form-group">
+            <label class="form-label">Prenom</label>
+            <input type="text" class="input" id="profilPrenom" placeholder="Votre prenom">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nom</label>
+            <input type="text" class="input" id="profilNom" placeholder="Votre nom">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="input" id="profilEmail">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Telephone</label>
+            <input type="tel" class="input" id="profilTel" placeholder="Optionnel">
+          </div>
+          <button type="button" class="btn btn-primary" id="btnSaveIdentite">
+            <i class="fa-solid fa-check"></i> Sauvegarder
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-section">
+      <div class="card">
+        <h2 class="section-title">Mon exploitation</h2>
+        <div class="form-group">
+          <label class="form-label">Nom de l'exploitation</label>
+          <input type="text" class="input" id="profilExploitationNom" placeholder="Nom de votre exploitation">
+        </div>
+        <div class="form-group">
+          <label class="form-label">SIRET</label>
+          <input type="text" class="input" id="profilSiret" placeholder="14 chiffres" maxlength="14">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Type d'agriculture</label>
+          <select class="input" id="profilTypeAgri">
+            <option value="">Selectionnez...</option>
+            <option value="Conventionnelle">Conventionnelle</option>
+            <option value="Biologique">Biologique</option>
+            <option value="Raisonnee">Raisonnee</option>
+            <option value="Agroecologie">Agroecologie</option>
+          </select>
+        </div>
+        <p class="diag-info" style="margin-bottom:16px" id="profilRegionInfo">Derniere region consultee : --</p>
+        <button type="button" class="btn btn-primary" id="btnSaveExploitation">
+          <i class="fa-solid fa-check"></i> Sauvegarder
+        </button>
+      </div>
+    </div>
+
+    <div class="profile-section">
+      <div class="card">
+        <h2 class="section-title">Statistiques</h2>
+        <div id="profilStatsContainer">
+          <div class="profile-stat"><span class="profile-stat-label">Nombre de champs</span><span class="profile-stat-value" id="statNbChamps">0</span></div>
+          <div class="profile-stat"><span class="profile-stat-label">Surface totale</span><span class="profile-stat-value" id="statSurface">0 ha</span></div>
+          <div class="profile-stat"><span class="profile-stat-label">Cultures actives</span><span class="profile-stat-value" id="statCultures" style="font-size:14px">Aucune</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-section">
+      <div class="card">
+        <h2 class="section-title">Preferences</h2>
+        <label class="toggle-row">
+          <span class="toggle-text">Notifications d'alertes</span>
+          <input type="checkbox" id="prefNotifications" hidden>
+          <span class="toggle-switch"></span>
+        </label>
+        <label class="toggle-row">
+          <span class="toggle-text">Unite de surface (hectares)</span>
+          <input type="checkbox" id="prefUniteHa" hidden checked>
+          <span class="toggle-switch"></span>
+        </label>
+        <div class="form-group" style="margin-top:16px;margin-bottom:0">
+          <label class="form-label">Ville meteo par defaut</label>
+          <input type="text" class="input" id="prefVilleMeteo" placeholder="Paris">
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-section">
+      <div class="card">
+        <h2 class="section-title">Securite</h2>
+        <button type="button" class="btn btn-secondary" id="btnChangeMdp" style="margin-bottom:12px">
+          <i class="fa-solid fa-lock"></i> Changer le mot de passe
+        </button>
+        <button type="button" class="btn btn-secondary" id="btnLogoutProfil" style="margin-bottom:12px">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i> Se deconnecter
+        </button>
+        <button type="button" class="btn btn-danger" id="btnDeleteAccount">
+          <i class="fa-solid fa-trash"></i> Supprimer mon compte
+        </button>
+        <div class="profile-delete-steps d-none" id="deleteSteps">
+          <div class="profile-delete-warning">Cette action est irreversible. Toutes vos donnees seront supprimees. Continuer ?</div>
+          <div class="profile-delete-confirm">
+            <input type="text" class="input" id="deleteConfirmInput" placeholder="Tapez SUPPRIMER pour confirmer">
+            <button type="button" class="btn btn-danger" id="btnDeleteConfirm" style="min-height:50px;width:auto;padding:0 16px;border-radius:var(--radius);font-size:14px">Confirmer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="dashboard.html" class="nav-item"><i class="fa-solid fa-house"></i><span>Accueil</span></a>
+    <a href="carte.html" class="nav-item"><i class="fa-solid fa-map"></i><span>Carte</span></a>
+    <a href="diagnostic.html" class="nav-item"><i class="fa-solid fa-magnifying-glass"></i><span>Diagnostic</span></a>
+    <a href="profil.html" class="nav-item active"><i class="fa-solid fa-user"></i><span>Profil</span></a>
+  </nav>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light only">
+  <meta name="theme-color" content="#FDF8EE">
+  <title>Agria - Connexion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="login">
+  <div class="login-page">
+    <h1 class="login-logo">Agria</h1>
+    <p class="login-tagline">L'agriculture intelligente</p>
+
+    <form class="login-form" id="loginForm" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="email">Adresse email</label>
+        <input type="email" id="email" class="input" placeholder="votre@email.com" required autocomplete="email">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="password">Mot de passe</label>
+        <input type="password" id="password" class="input" placeholder="Mot de passe" required autocomplete="current-password">
+      </div>
+
+      <a href="#" class="login-forgot">Mot de passe oublie ?</a>
+
+      <button type="submit" class="btn btn-primary login-btn">Se connecter</button>
+    </form>
+
+    <div class="login-separator">
+      <span class="login-separator-line"></span>
+      <span class="login-separator-text">ou</span>
+      <span class="login-separator-line"></span>
+    </div>
+
+    <button type="button" class="btn btn-secondary login-btn" id="btnRegister">Creer un compte</button>
+
+    <div class="login-dev-bypass">
+      <button type="button" class="btn-dev" id="btnDevBypass">
+        <i class="fa-solid fa-code"></i> Acces developpeur (dashboard)
+      </button>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
